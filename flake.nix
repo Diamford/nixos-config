@@ -23,9 +23,6 @@
   };
 
   outputs = { self, nixpkgs, disko, home-manager, nixvim, reaper-flake, ... }@inputs: {
-    diskoConfigurations = {
-      desktop = import ./disko-config.nix;
-    };
 
     nixosConfigurations = {
       # Замените "nixos" на имя вашего хоста (hostname)
@@ -34,6 +31,9 @@
 	specialArgs = {};
         modules = [
 	  ./desktop-configs/desktop/configuration.nix
+    ./hardware-configuration.nix
+    ./disko-configs/disko.nix
+    disko.nixosModules.disko
 
 	home-manager.nixosModules.home-manager
 	  {
