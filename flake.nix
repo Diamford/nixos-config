@@ -33,7 +33,7 @@
         system = "x86_64-linux";
 	specialArgs = {};
         modules = [
-	  ./desktop-configs/desktop/system-config/configuration.nix
+	  ./desktop-configs/desktop/configuration.nix
 
 	home-manager.nixosModules.home-manager
 	  {
