@@ -28,31 +28,31 @@
       # Замените "nixos" на имя вашего хоста (hostname)
       desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-	specialArgs = {};
+	      specialArgs = {};
         modules = [
-	  ./desktop-configs/desktop/configuration.nix
-    ./hardware-configuration.nix
-    ./disko-configs/disko.nix
-    disko.nixosModules.disko
+	        ./desktop-configs/desktop/configuration.nix
+          ./hardware.nix
+          ./disko-configs/disko.nix
+          disko.nixosModules.disko
 
-	home-manager.nixosModules.home-manager
-	  {
-	    home-manager.useGlobalPkgs = true;
-	    home-manager.useUserPackages = true;
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
 
-	    home-manager.sharedModules = [  
-	      nixvim.homeManagerModules.nixvim
-	      reaper-flake.homeModules.reaper
-	    ];
+            home-manager.sharedModules = [  
+              nixvim.homeManagerModules.nixvim
+              reaper-flake.homeModules.reaper
+            ];
 
-	    home-manager.users = {
-	      vergil = {
-	        imports = [
-		  ./desktop-configs/desktop/home-manager-config/home.nix
-		];
-	      };
-	    };
-	  }
+            home-manager.users = {
+              vergil = {
+                imports = [
+                  ./desktop-configs/desktop/home-manager-config/home.nix
+                ];
+              };
+            };
+          }
         ];
       };
 
