@@ -6,7 +6,6 @@
 	./shell/zsh.nix
 	./programs/nixvim.nix
 	./programs/packages.nix
-	./programs/reaper.nix
 	./programs/netbird.nix
   ];
   # Укажите имя пользователя и домашний каталог

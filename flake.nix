@@ -30,7 +30,7 @@
         system = "x86_64-linux";
 	      specialArgs = {};
         modules = [
-	        ./desktop-configs/desktop/configuration.nix
+	  ./desktop-configs/desktop/configuration.nix
           ./hardware.nix
           ./disko-configs/disko.nix
           disko.nixosModules.disko
@@ -58,6 +58,11 @@
 
       server = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+	modules = [
+	  disko.nixosModules.disko
+	  ./disko-configs/disko.nix
+	  ./server-configs/server/configuration.nix
+	  ./hardware.nix
       };
 	
     };

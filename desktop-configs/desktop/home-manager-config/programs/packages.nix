@@ -8,7 +8,6 @@
     steam
     krita
     prismlauncher
-    libreoffice
     zip
 
     python3
