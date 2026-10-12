@@ -5,7 +5,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = []
+  imports = [];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -18,7 +18,7 @@
 
     settings = {
       PasswordAutentification = true;
-      PermitRootLogin = "1234"; # При использовании замените на более сложный.
+      PermitRootLogin = "yes"; # При использовании замените на более сложный.
     };
   };
 

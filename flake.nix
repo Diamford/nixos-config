@@ -59,12 +59,12 @@
       server = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 	modules = [
-	  disko.nixosModules.disko
 	  ./disko-configs/disko.nix
 	  ./server-configs/server/configuration.nix
 	  ./hardware.nix
+	  disko.nixosModules.disko
+	];
       };
-	
     };
   };
 }

@@ -11,7 +11,7 @@
     defaultNetwork.settings.dns_enabled = true;
   };
 
-  environment.systemPackages = [ pkgs.distrobox ];
+  environment.systemPackages = [ pkgs.distrobox pkgs.gh ];
 
   # Загрузчик
   boot.loader.systemd-boot.enable = true;

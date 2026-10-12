@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     git
+    gh
     firefox
     fastfetch
     steam
