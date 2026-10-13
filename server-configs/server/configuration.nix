@@ -7,7 +7,7 @@
 {
   imports = [];
 
-  users.users.vergil ={
+  users.users.vergil = {
     isNormalUser = true;
     extraGroupss = [ "wheel" "networkmanager" "docker" ];
     initialPassword = "1"; #заменить на более надежный пароль
