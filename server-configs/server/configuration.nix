@@ -18,7 +18,7 @@
 
   services.netbird = {
     enable = true;
-    useRoutingFeatures = true;
+    useRoutingFeatures = "both";
   };
 
   networking.firewall.allowedTCPPorts = [ 22 51820 ];
