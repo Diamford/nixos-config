@@ -7,11 +7,15 @@
 {
   imports = [];
 
-  users.users.vergil = {
-    isNormalUser = true;
-    extraGroupss = [ "wheel" "networkmanager" "docker" ];
-    initialPassword = "1"; #заменить на более надежный пароль
-  };
+  services.logind.extraConfig = ''
+    HandleLidSwitch=ignore
+    HandleLidSwitchExternalPower=ignore
+  '';
+
+  environment.systemPackages = with pkgs; [
+    git
+  ];
+
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -23,7 +27,7 @@
     enable = true;
 
     settings = {
-      PasswordAutentification = true;
+      PasswordAuthentication = true;
       PermitRootLogin = "yes"; # При использовании замените на более сложный.
     };
   };
