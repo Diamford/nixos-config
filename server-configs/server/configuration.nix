@@ -27,6 +27,7 @@
   };
 
   networking.firewall.allowedTCPPorts = [ 22 51820 ];
+  networking.firewall.trustedInterfaces = [ "wt0" ];
 
 
   # Use the systemd-boot EFI boot loader.
