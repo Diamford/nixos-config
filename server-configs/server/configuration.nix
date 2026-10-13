@@ -11,7 +11,7 @@
     isNormalUser = true;
     extraGroupss = [ "wheel" "networkmanager" "docker" ];
     initialPassword = "1"; #заменить на более надежный пароль
-  }
+  };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
