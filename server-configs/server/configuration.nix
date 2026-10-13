@@ -41,6 +41,7 @@
 
     settings = {
       PasswordAuthentication = true;
+      KbdInteractiveAuthentication = true;
       PermitRootLogin = "yes"; # При использовании замените на более сложный.
     };
   };
