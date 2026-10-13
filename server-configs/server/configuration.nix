@@ -7,10 +7,10 @@
 {
   imports = [];
 
-  services.logind.settings.Login = ''
-    HandleLidSwitch=ignore
-    HandleLidSwitchExternalPower=ignore
-  '';
+  services.logind.settings.Login = {
+    HandleLidSwitch = "ignore";
+    HandleLidSwitchExternalPower = "ignore";
+  };
 
   environment.systemPackages = with pkgs; [
     git
