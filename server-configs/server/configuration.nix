@@ -16,6 +16,13 @@
     git
   ];
 
+  services.netbird = {
+    enable = true;
+    useRoutingFeatures = true;
+  };
+
+  networking.firewall.allowedTCPPorts = [ 22 51820 ];
+
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
