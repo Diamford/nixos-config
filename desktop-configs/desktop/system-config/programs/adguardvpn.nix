@@ -5,14 +5,14 @@
     backend = "docker";
     containers = {
       adguard-vpn = {
-        image = "adguard/adguardvpn-cli:latest"; # Официальный образ AdGuard
-        containerName = "adguard-vpn";
+        image = "adguard/adguardvpn-cli:latest";
+        # Строку containerName мы убрали, имя "adguard-vpn" присвоится автоматически
         autoStart = true;
         
         capabilities = [ "NET_ADMIN" ];
         extraOptions = [ 
           "--device=/dev/net/tun:/dev/net/tun" 
-          "--network=host" # Чтобы пустить трафик ВСЕГО компьютера через VPN
+          "--network=host" 
         ];
 
         volumes = [
@@ -21,5 +21,6 @@
       };
     };
   };
+
 }
 
