@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  imports = [];
+  imports = [
+    ./system-config/programs/adguardvpn.nix
+  ];
 
   services.netbird.enable = true;
 

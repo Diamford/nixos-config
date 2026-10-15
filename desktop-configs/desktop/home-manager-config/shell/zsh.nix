@@ -10,6 +10,7 @@
     shellAliases = {
       flake-rebuild = "sudo nixos-rebuild switch --flake /etc/nixos/#desktop";
       ll = "ls -la";
+      adguardvpn = "docker exec -it adguard-vpn adguardvpn-cli"
     };
 
     history = {
