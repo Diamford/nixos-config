@@ -6,10 +6,13 @@
     containers = {
       adguard-vpn = {
         image = "adguard/adguardvpn-cli:latest";
-        # Строку containerName мы убрали, имя "adguard-vpn" присвоится автоматически
         autoStart = true;
         
-        capabilities = [ "NET_ADMIN" ];
+        # Исправленный синтаксис для линукс-капабилити в NixOS
+        capabilities = {
+          NET_ADMIN = true;
+        };
+
         extraOptions = [ 
           "--device=/dev/net/tun:/dev/net/tun" 
           "--network=host" 
@@ -21,6 +24,5 @@
       };
     };
   };
-
 }
 
