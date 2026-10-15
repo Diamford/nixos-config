@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 
 {
+  # Автоматически создаем папку на хосте при сборке системы
+  systemd.tmpfiles.rules = [
+    "d /var/lib/adguardvpn 0700 root root - -"
+  ];
+
   virtualisation.oci-containers = {
     backend = "podman";
     containers = {
@@ -8,7 +13,6 @@
         image = "adguard/adguardvpn-cli:latest";
         autoStart = true;
         
-        # Исправленный синтаксис для линукс-капабилити в NixOS
         capabilities = {
           NET_ADMIN = true;
         };
