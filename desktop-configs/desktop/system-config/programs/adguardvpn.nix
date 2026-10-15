@@ -2,7 +2,7 @@
 
 {
   virtualisation.oci-containers = {
-    backend = "docker";
+    backend = "podman";
     containers = {
       adguard-vpn = {
         image = "adguard/adguardvpn-cli:latest";
