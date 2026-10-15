@@ -14,6 +14,7 @@
 
   environment.systemPackages = with pkgs; [
     git
+    wakeonlan
   ];
 
   services.netbird = {
