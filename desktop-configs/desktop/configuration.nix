@@ -3,6 +3,7 @@
 {
   imports = [
     ./system-config/programs/adguardvpn.nix
+    ./system-config/programs/kompas3d.nix
   ];
 
   services.netbird.enable = true;
