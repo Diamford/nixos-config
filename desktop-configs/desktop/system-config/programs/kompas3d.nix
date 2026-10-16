@@ -36,7 +36,7 @@ let
 
 		cp ${dockerfile} "$tmp/Dockerfile"
 
-		${pkgs.docker}/bin/docker build \
+		${pkgs.podman}/bin/podman build \
 			--tag ${image} \
 			"$tmp"
 	'';
