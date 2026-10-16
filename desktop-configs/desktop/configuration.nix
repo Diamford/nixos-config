@@ -13,7 +13,7 @@
     defaultNetwork.settings.dns_enabled = true;
   };
 
-  environment.systemPackages = [ pkgs.distrobox pkgs.gh ];
+  environment.systemPackages = [ pkgs.mesa-demos pkgs.gh ];
 
   # Загрузчик
   boot.loader.systemd-boot.enable = true;

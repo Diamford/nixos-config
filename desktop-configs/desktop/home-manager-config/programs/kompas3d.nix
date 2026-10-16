@@ -1,49 +1,53 @@
-{ pkgs, config, ... }:
 
+{ pkgs, ... }:
+
+let
+	image = "local/kompas3d-study:v25";
+
+	dockerfile = pkgs.writeText "Dockerfile" ''
+		FROM alt:p11
+
+		RUN apt-get update && \
+			apt-get install -y \
+				wget \
+				ca-certificates
+
+		RUN wget -O /tmp/ascon-personal.sh \
+			https://repo.ascon.ru/personal/scripts/ascon-personal-alt.sh && \
+			bash /tmp/ascon-personal.sh && \
+			rm /tmp/ascon-personal.sh
+
+		RUN wget -O /tmp/ascon-stable.sh \
+			https://repo.ascon.ru/scripts/ascon-stable-alt.sh && \
+			bash /tmp/ascon-stable.sh && \
+			rm /tmp/ascon-stable.sh
+
+		RUN apt-get update && \
+			apt-get install -y \
+				ascon-kompas3d-study-v25-full \
+				ascon-common-coredump-watcher
+	'';
+
+	build = pkgs.writeShellScriptBin "kompas3d-build" ''
+		set -euo pipefail
+
+		tmp="$(${pkgs.coreutils}/bin/mktemp -d)"
+		trap 'rm -rf "$tmp"' EXIT
+
+		cp ${dockerfile} "$tmp/Dockerfile"
+
+		${pkgs.docker}/bin/docker build \
+			--tag ${image} \
+			"$tmp"
+	'';
+in
 {
-  systemd.user.services.init-alt-distrobox = {
-    Unit = {
-      Description = "Initialize ALT Linux Distrobox and install packages";
-      # Убрали After = [ "default.target" ], чтобы не блокировать автозапуск
-    };
+	virtualisation.docker.enable = true;
 
-    Install = {
-      WantedBy = [ "default.target" ];
-    };    
+	hardware.graphics.enable = true;
 
-    Service = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-      
-      ExecStart = pkgs.writeShellScript "init-alt-linux" ''
-        set -euo pipefail # Прерывать выполнение при любой ошибке
-        
-        # Проверяем, существует ли контейнер
-        if ! ${pkgs.distrobox}/bin/distrobox list | grep -q "alt-env"; then
-          
-          # Создаем контейнер
-          ${pkgs.distrobox}/bin/distrobox create \
-            --name alt-env \
-            --image alt:p10 \
-            --yes
-
-          # Выполняем установку внутри контейнера
-          ${pkgs.distrobox}/bin/distrobox enter alt-env -- bash -c '
-            set -euo pipefail
-            
-            # Используем sudo -n (non-interactive). 
-            # Если sudo потребует пароль, скрипт сразу упадет с понятной ошибкой, 
-            # а не будет висеть в ожидании ввода с несуществующего терминала.
-            sudo -n wget -qO - https://repo.ascon.ru/personal/scripts/ascon-personal-alt.sh | sudo -n bash || true
-            sudo -n wget -qO - https://repo.ascon.ru/scripts/ascon-stable-alt.sh | sudo -n bash || true
-            
-            sudo -n apt-get update
-            
-            # ВАЖНО: добавлен флаг -y для автоматического подтверждения установки пакетов
-            sudo -n apt-get install -y ascon-kompas3d-study-v25-full ascon-common-coredump-watcher
-          '
-        fi
-      '';
-    };
-  };
+	environment.systemPackages = [
+		build
+	];
 }
+
