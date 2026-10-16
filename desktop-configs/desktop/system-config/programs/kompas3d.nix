@@ -10,7 +10,9 @@ let
 		RUN apt-get update && \
 			apt-get install -y \
 				wget \
-				ca-certificates
+				ca-certificates \
+				curl \
+				gnupg
 
 		RUN wget -O /tmp/ascon-personal.sh \
 			https://repo.ascon.ru/personal/scripts/ascon-personal-alt.sh && \
