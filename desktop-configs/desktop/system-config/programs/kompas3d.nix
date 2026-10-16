@@ -42,8 +42,6 @@ let
 	'';
 in
 {
-	virtualisation.docker.enable = true;
-
 	hardware.graphics.enable = true;
 
 	environment.systemPackages = [
