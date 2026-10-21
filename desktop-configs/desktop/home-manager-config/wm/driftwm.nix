@@ -3,6 +3,7 @@
 {
 	home.packages = with pkgs; [
 	  swaynotificationcenter
+	  driftwm
 	];
 
 	xdg.configFile."driftwm/config.toml".source =

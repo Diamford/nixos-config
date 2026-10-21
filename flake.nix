@@ -20,9 +20,11 @@
       url = "github:9Prestidigitator/reaper-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    driftwm.url = "github:malbiruk/driftwm";
   };
 
-  outputs = { self, nixpkgs, disko, home-manager, nixvim, reaper-flake, ... }@inputs: {
+  outputs = { self, nixpkgs, disko, home-manager, nixvim, reaper-flake, driftwm, ... }@inputs: {
 
     nixosConfigurations = {
       # Замените "nixos" на имя вашего хоста (hostname)
@@ -34,6 +36,7 @@
           ./hardware.nix
           ./disko-configs/disko.nix
           disko.nixosModules.disko
+	  driftwm.nixosModules.default
 
           home-manager.nixosModules.home-manager
           {

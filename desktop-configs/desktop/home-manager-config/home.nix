@@ -7,6 +7,7 @@
 	./programs/nixvim.nix
 	./programs/packages.nix
 	./programs/netbird.nix
+	./wm/driftwm.nix
   ];
   # Укажите имя пользователя и домашний каталог
   home.username = "vergil";
