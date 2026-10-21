@@ -3,8 +3,9 @@
 {
 	home.packages = with pkgs; [
 	  swaynotificationcenter
-	  driftwm
 	];
+
+	programs.driftwm.enable = true;
 
 	xdg.configFile."driftwm/config.toml".source =
 		(pkgs.formats.toml {}).generate "driftwm-config.toml" {
