@@ -36,7 +36,11 @@
           ./hardware.nix
           ./disko-configs/disko.nix
           disko.nixosModules.disko
+
 	  driftwm.nixosModules.default
+	  {
+	    programs.driftwm.enable = true;
+	  }
 
           home-manager.nixosModules.home-manager
           {

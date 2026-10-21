@@ -5,8 +5,6 @@
 	  swaynotificationcenter
 	];
 
-	programs.driftwm.enable = true;
-
 	xdg.configFile."driftwm/config.toml".source =
 		(pkgs.formats.toml {}).generate "driftwm-config.toml" {
 
