@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     git
+    codex
     gh
     firefox
     fastfetch

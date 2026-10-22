@@ -8,7 +8,10 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-      flake-rebuild = "sudo git pull && sudo nixos-rebuild switch --flake /etc/nixos/#desktop";
+      flake-rebuild = "cd /etc/nixos && \
+      sudo git pull && \
+      sudo nixos-rebuild switch --flake /etc/nixos/#desktop\
+      cd";
       ll = "ls -la";
       adguardvpn-cli = "sudo podman exec -it adguard-vpn adguardvpn-cli";
     };
