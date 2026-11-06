@@ -5,6 +5,8 @@
 	  swaynotificationcenter
 	];
 
+	xdg.configFile."driftwm/neon.glsl".source = ./neon.glsl;
+
 	xdg.configFile."driftwm/config.toml".source =
 		(pkgs.formats.toml {}).generate "driftwm-config.toml" {
 
