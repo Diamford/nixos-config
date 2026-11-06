@@ -42,7 +42,7 @@
 
 			background = {
 				type = "shader";
-				path = "${config.xdg.configHome}/wm/neon.glsl";
+				path = "${config.xdg.configHome}/driftwm/neon.glsl";
 				animate_fps = 60;
 				cache_shader = false;
 			};
