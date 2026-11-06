@@ -39,7 +39,10 @@
 			};
 
 			background = {
-				type = "default";
+				type = "shader";
+				path = "${config.xdg.configHome/wm/neon.glsl";
+				animate_fps = 60;
+				cache_shadeer = false;
 			};
 
 			window_rules = [
