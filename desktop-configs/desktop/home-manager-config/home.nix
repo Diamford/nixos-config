@@ -2,7 +2,6 @@
 
 {
   imports = [
-	./wm/sway.nix
 	./shell/zsh.nix
 	./programs/nixvim.nix
 	./programs/packages.nix
