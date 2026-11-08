@@ -22,6 +22,11 @@ let
 				--name "${containerName}" \
 				--image "${containerImage}" \
 				--yes
+			kompas3d-enter sudo apt-get install -y wget
+			kompas3d-enter sudo bash -c "$(wget -O - https://repo.ascon.ru/personal/scripts/ascon-personal-alt.sh)"
+			kompas3d-enter sudo bash -c "$(wget -O - https://repo.ascon.ru/scripts/ascon-stable-alt.sh)"
+			kompas3d-enter sudo apt-get update
+			kompas3d-enter sudo apt-get install ascon-kompas3d-study-v25-full ascon-common-coredump-watcher
 		'';
 	};
 
