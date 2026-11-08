@@ -36,7 +36,7 @@ let
 
 			kompas3d-enter sudo apt-get update
 			kompas3d-enter sudo apt-get install -y ascon-kompas3d-study-v25-full ascon-common-coredump-watcher
-			kompas3d-enter distroox-export --app kompas-study-v25
+			kompas3d-enter distrobox-export --app kompas-study-v25
 		'';
 	};
 
