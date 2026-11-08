@@ -39,7 +39,7 @@ let
 		runtimeInputs = [ pkgs.distrobox ];
 
 		text = ''
-			exec distrobox enter "${containerName}" -- "$@"
+			exec distrobox enter "${containerName}" -T -- "$@"
 		'';
 	};
 
