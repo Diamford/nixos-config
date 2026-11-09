@@ -11,6 +11,7 @@
     krita
     prismlauncher
     zip
+    gamescope
 
     python3
     
