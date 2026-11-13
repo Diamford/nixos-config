@@ -54,7 +54,7 @@
   programs.sway.enable = true;
 
   # Включаем поддержку Flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ "video" "render" "nix-command" "flakes" ];
 
   # Автоматическая очистка мусора для экономии места
   # Будут удалены поколения старше 30 дней
