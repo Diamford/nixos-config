@@ -14,7 +14,16 @@
     defaultNetwork.settings.dns_enabled = true;
   };
 
-  environment.systemPackages = [ pkgs.mesa-demos pkgs.gh ];
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      intel-compute-runtime
+    ];
+  };
+
+  environment.systemPackages = [ pkgs.gh ];
 
   # Загрузчик
   boot.loader.systemd-boot.enable = true;
