@@ -54,7 +54,7 @@
   programs.sway.enable = true;
 
   # Включаем поддержку Flakes
-  nix.settings.experimental-features = [ "video" "render" "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Автоматическая очистка мусора для экономии места
   # Будут удалены поколения старше 30 дней
@@ -67,7 +67,7 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "Vergil";
-    extraGroups = [ "networkmanager" "wheel" "docker" ]; # 'wheel' позволяет выполнять команды с sudo
+    extraGroups = [ "video" "render" "networkmanager" "wheel" "docker" ]; # 'wheel' позволяет выполнять команды с sudo
     # home.username и home.homeDirectory не нужны здесь, так как они определяются
     # автоматически через users.users.<username> и home-manager.users.<username>
   };
