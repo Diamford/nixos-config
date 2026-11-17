@@ -18,7 +18,6 @@ in
 
 		swell.colortheme = {
 		  enable = true;
-		  preset = reaperPackages.reark-theme;
 		};
 
 		extensions = {
