@@ -13,13 +13,12 @@ in
 		    reaperPackages.smooth6-theme
 		    reaperPackages.part-theme
 		    reaperPackages.reark-theme
-		    reaperPackages.xraym-analog-theme
 		  ];
 		};
 
 		swell.colortheme = {
 		  enable = true;
-		  preset = reaperPackages.realinux-dark-swell-theme;
+		  preset = reaperPackages.reark-theme;
 		};
 
 		extensions = {
