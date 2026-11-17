@@ -30,7 +30,7 @@ in
 		};
 		preferences = {
 		  general.startupSettings.showSplashScreenOnStartup = false;
-		  project.trackSendDefaults.TrackVolumeFaderGain = -10.0;
+		  project.trackSendDefaults.trackVolumeFaderGain = -10.0;
 		};
 	};
 
