@@ -1,6 +1,6 @@
 { config, pkgs, reaper-flake, ... }:
 let
-  reaperPackages = reaper-flake.reaper-flake.packages.${pkgs.system};
+  reaperPackages = reaper-flake.packages.${pkgs.system};
 in
 {
 	programs.reaper = {
