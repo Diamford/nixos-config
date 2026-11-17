@@ -30,7 +30,9 @@
       # Замените "nixos" на имя вашего хоста (hostname)
       desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-	      specialArgs = {};
+	      specialArgs = {
+		inherit inputs;
+	      };
         modules = [
 	  ./desktop-configs/desktop/configuration.nix
           ./hardware.nix
