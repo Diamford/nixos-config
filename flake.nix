@@ -25,8 +25,7 @@
       # Замените "nixos" на имя вашего хоста (hostname)
       desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-	      specialArgs = {
-	      };
+	      specialArgs = {};
         modules = [
 	  ./desktop-configs/desktop/configuration.nix
           ./hardware.nix
@@ -42,7 +41,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit reaper-flake; };
+            home-manager.extraSpecialArgs = {};
 
             home-manager.sharedModules = [  
               nixvim.homeManagerModules.nixvim
