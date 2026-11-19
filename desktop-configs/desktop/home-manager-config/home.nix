@@ -6,7 +6,6 @@
 	./programs/nixvim.nix
 	./programs/packages.nix
 	./programs/netbird.nix
-	./programs/reaper.nix
 	./wm/driftwm.nix
   ];
   # Укажите имя пользователя и домашний каталог

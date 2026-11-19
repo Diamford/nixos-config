@@ -16,15 +16,10 @@
 
     nixvim.url = "github:nix-community/nixvim";
 
-    reaper-flake = {
-      url = "github:9Prestidigitator/reaper-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     driftwm.url = "github:malbiruk/driftwm";
   };
 
-  outputs = { self, nixpkgs, disko, home-manager, nixvim, reaper-flake, driftwm, ... }@inputs: {
+  outputs = { self, nixpkgs, disko, home-manager, nixvim, driftwm, ... }@inputs: {
 
     nixosConfigurations = {
       # Замените "nixos" на имя вашего хоста (hostname)
@@ -51,7 +46,6 @@
 
             home-manager.sharedModules = [  
               nixvim.homeManagerModules.nixvim
-              reaper-flake.homeModules.reaper
             ];
 
             home-manager.users = {

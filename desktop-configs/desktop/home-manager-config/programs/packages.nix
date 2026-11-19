@@ -10,7 +10,6 @@
     steam
     krita
     prismlauncher
-    omnissa-horizon-client
     zip
     gamescope
 
