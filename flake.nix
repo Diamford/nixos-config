@@ -33,10 +33,6 @@
           disko.nixosModules.disko
 
 	  driftwm.nixosModules.default
-	  {
-	    programs.driftwm.enable = true;
-	  }
-
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -51,6 +47,7 @@
               vergil = {
                 imports = [
                   ./desktop-configs/desktop/home-manager-config/home.nix
+		  driftwm.homeModules.default
                 ];
               };
             };
