@@ -1,58 +1,47 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }: {
+  wayland.windowManager.driftwm = {
+    enable = true;
+    # Настройки транслируются в ~/.config/driftwm/config.toml
+    settings = {
+      autostart = [ "waybar" ];
+      window_placement = "auto";
+      outer_gap = 12.0;
+    };
+  };
 
-{
-	home.packages = with pkgs; [
-	  swaynotificationcenter
-	];
+  programs.waybar = {
+    enable = true;
+    settings = {
+      mainBar = {
+        layer = "top";
+        position = "top";
+        height = 34;
+        # Резервирует место на экране, чтобы окна не залезали под панель
+        exclusive = true;
+        modules-left = [ "wlr/taskbar" ];
+        modules-center = [ "clock" ];
+        modules-right = [ "pulseaudio" "network" "battery" "tray" ];
 
-	xdg.configFile."driftwm/neon.glsl".source = ./neon.glsl;
+        "wlr/taskbar" = {
+          format = "{icon} {title:.20}";
+          icon-size = 18;
+          on-click = "activate";
+          on-click-middle = "close";
+        };
+      };
+    };
 
-	xdg.configFile."driftwm/config.toml".source =
-		(pkgs.formats.toml {}).generate "driftwm-config.toml" {
-
-			mod_key = "super";
-			window_placement = "cursor";
-			focus_follows_mouse = true;
-
-			autostart = [
-				"waybar"
-			];
-
-			input.keyboard = {
-				layout = "us,ru";
-				options = "grp:alt_shift_toggle";
-			};
-
-			decorations = {
-				corner_radius = 12;
-				shadow = true;
-				border_width = 2;
-				border_color = "#313244";
-				border_color_focused = "#89b4fa";
-				opacity = 0.95;
-				opacity_focused = 1.0;
-			};
-
-			effects = {
-				blur_radius = 2;
-				blur_strength = 1.1;
-				animation_speed = 0.5;
-				animation_scale = 0.95;
-			};
-
-			background = {
-				type = "shader";
-				path = "${config.xdg.configHome}/driftwm/neon.glsl";
-				animate_fps = 60;
-				cache_shader = false;
-			};
-
-			window_rules = [
-				{
-					app_id = "foot";
-					opacity = 0.90;
-					blur = true;
-				}
-			];
-		};
+    style = ''
+      * {
+        font-family: "JetBrainsMono Nerd Font", sans-serif;
+        font-size: 13px;
+      }
+      window#waybar {
+        background: rgba(30, 30, 46, 0.85);
+        color: #cdd6f4;
+        border-radius: 10px;
+      }
+    '';
+  };
 }
+
